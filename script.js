@@ -2,7 +2,6 @@
 (function () {
   'use strict';
 
-  const body = document.body;
   const navToggle = document.querySelector('.nav-toggle');
   const navLinks = document.querySelector('.nav-links');
   const backToTopBtn = document.querySelector('.back-to-top');
@@ -12,7 +11,6 @@
     const expanded = navToggle.getAttribute('aria-expanded') === 'true';
     navToggle.setAttribute('aria-expanded', String(!expanded));
     navLinks.classList.toggle('active');
-    body.classList.toggle('no-scroll', !expanded);
   };
 
   if (navToggle) {
@@ -24,7 +22,6 @@
       if (event.target instanceof HTMLAnchorElement) {
         navLinks.classList.remove('active');
         navToggle.setAttribute('aria-expanded', 'false');
-        body.classList.remove('no-scroll');
       }
     });
   }
@@ -33,7 +30,6 @@
     if (window.innerWidth > 1024 && navLinks.classList.contains('active')) {
       navLinks.classList.remove('active');
       navToggle.setAttribute('aria-expanded', 'false');
-      body.classList.remove('no-scroll');
     }
   };
 
